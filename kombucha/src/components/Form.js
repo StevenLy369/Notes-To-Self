@@ -8,10 +8,14 @@ function Form(props){
 
     function handleNewKombuncha(event){
         event.preventDefault();
+        console.log(event.target.brand.value)
+        console.log(event.target.flavor.value)
         props.onNewKombuncha({
             brand:event.target.brand.value,
             price:event.target.price.value,
             flavor:event.target.flavor.value,
+
+            
         id:v4()})
     }
 
