@@ -1,13 +1,13 @@
 import React from 'react';
 import Header from './Header'
-import Form from './Form'
+import KombunchaControl from './KombunchaControl'
 import './App.css';
 
 function App() {
   return (
     <React.Fragment>
       <Header />
-      <Form />
+      <KombunchaControl />
 
 
     </React.Fragment>

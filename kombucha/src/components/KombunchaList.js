@@ -5,7 +5,7 @@ import PropTypes from "prop-types"
 function KombunchaList(props) {
     return (
         <React.Fragment>
-            {props.KombunchaList.Map((kombuncha,index) =>
+            {props.kombunchaList.map((kombuncha,index) =>
             <Kombuncha 
                 brand = {kombuncha.brand}
                 price = {kombuncha.price}
