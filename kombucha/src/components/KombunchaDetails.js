@@ -2,13 +2,13 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 function KombunchaDetails(props) {
-    const {Kombuncha} = props;
+    const {kombuncha} = props;
     return (
         <React.Fragment>
             <h1>Kombuncha Details</h1>
-            <h2>Kombuncha Brand:{Kombuncha.brand}</h2>
-            <h2>Kombuncha Flavor:{Kombuncha.flavor}</h2>
-            <h2>Kombuncha Price:{Kombuncha.price}</h2>
+            <h2>Kombuncha Brand:{kombuncha.brand}</h2>
+            <h2>Kombuncha Flavor:{kombuncha.flavor}</h2>
+            <h2>Kombuncha Price:{kombuncha.price}</h2>
         </React.Fragment>
     )
 
