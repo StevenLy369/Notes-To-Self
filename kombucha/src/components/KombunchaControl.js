@@ -1,6 +1,6 @@
 import React from 'react';
 import KombunchaList from './KombunchaList';
-import Form from './Form';
+import KombunchaForm from './KombunchaForm';
 
 
 
@@ -25,7 +25,7 @@ class KombunchaControl extends React.Component {
         const newMasterKombunchaList = this.state.masterKombunchaList.concat(newKombuncha);
         this.setState({
             masterKombunchaList: newMasterKombunchaList,
-            formVisibleOnPage:false
+            formVisibleOnPage: false
         })
     }
 
@@ -34,7 +34,7 @@ class KombunchaControl extends React.Component {
         let buttonText = null;
 
         if (this.state.formVisibleOnPage) {
-            currentlyvisibleState = <Form onNewKombuncha = {this.handleAddingNewKombuncha} />
+            currentlyvisibleState = <KombunchaForm onNewKombuncha = {this.handleAddingNewKombuncha} />
             buttonText = "Add new Kombuncha"
         } else {
             currentlyvisibleState = <KombunchaList kombunchaList={this.state.masterKombunchaList} />

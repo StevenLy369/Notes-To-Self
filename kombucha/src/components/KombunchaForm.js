@@ -4,19 +4,15 @@ import PropTypes from 'prop-types';
 
 
 
-function Form(props){
+function KombunchaForm(props){
 
     function handleNewKombuncha(event){
         event.preventDefault();
-        console.log(event.target.brand.value)
-        console.log(event.target.flavor.value)
         props.onNewKombuncha({
             brand:event.target.brand.value,
             price:event.target.price.value,
             flavor:event.target.flavor.value,
-
-            
-        id:v4()})
+            id:v4()})
     }
 
     return (
@@ -45,11 +41,11 @@ function Form(props){
     )
 }
 
-Form.protoType = {
+KombunchaForm.protoType = {
     onNewKombuncha: PropTypes.func
 }
 
 
 
 
-export default Form;
+export default KombunchaForm;
