@@ -33,13 +33,17 @@ function Form(props){
                     name="price"
                     placeholder="price" />
 
+                    <button type="submit">Submit</button>
+
 
             </form>
         </React.Fragment>
     )
 }
 
-
+Form.protoType = {
+    onNewKombuncha: PropTypes.func
+}
 
 
 
