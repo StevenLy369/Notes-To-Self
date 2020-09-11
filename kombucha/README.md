@@ -6,6 +6,8 @@
 
 ## Description
 
+![picture](C:\Users\Steven\Desktop\epi\react\kombucha\kombuncha.drawio)
+
 ### App where you can view kombuncha list as well as add differnt flavor kombuncha with different props
 
 ## Setup/Installation Requirements

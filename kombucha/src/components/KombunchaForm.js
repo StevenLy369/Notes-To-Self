@@ -22,17 +22,18 @@ function KombunchaForm(props){
                     type="text"
                     name="brand"
                     placeholder="brand" />
+                    <br/>
 
                 <input
                     type="text"
                     name="flavor"
                     placeholder="flavor" />
-                
+                    <br/>
                 <input
                     type="text"
                     name="price"
                     placeholder="price" />
-
+                    <br/>
                     <button type="submit">Submit</button>
 
 

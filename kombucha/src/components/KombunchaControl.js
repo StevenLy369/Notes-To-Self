@@ -35,10 +35,10 @@ class KombunchaControl extends React.Component {
 
         if (this.state.formVisibleOnPage) {
             currentlyvisibleState = <KombunchaForm onNewKombuncha = {this.handleAddingNewKombuncha} />
-            buttonText = "Add new Kombuncha"
+            buttonText = "Return to list"
         } else {
             currentlyvisibleState = <KombunchaList kombunchaList={this.state.masterKombunchaList} />
-            buttonText = "View List"
+            buttonText = "Add new Kombuncha"
 
         }
         return(
