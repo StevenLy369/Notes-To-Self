@@ -6,7 +6,7 @@ function KombunchaList(props) {
     return (
         <React.Fragment>
             {props.KombunchaList.Map((kombuncha,index) =>
-            <Kombuncha name={kombuncha.name}
+            <Kombuncha
                 brand = {kombuncha.brand}
                 price = {kombuncha.price}
                 flavor = {kombuncha.flavor}
