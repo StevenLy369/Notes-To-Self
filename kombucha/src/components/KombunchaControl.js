@@ -11,15 +11,24 @@ class KombunchaControl extends React.Component {
         super(props);
         this.state = {
             formVisibleOnPage: false,
-            masterKombunchaList:[]
+            masterKombunchaList:[],
+            selectedKombuncha: null
             
         }
     }
 
     handleClick = () => {
-        this.setState(prevState => ({
-            formVisibleOnPage: !prevState.formVisibleOnPage
-        }))
+        if(this.state.selectedKombuncha !=null){
+            this.setState({
+                formVisibleOnPage:false,
+                selectedKombuncha: null
+            })
+
+        }else{
+            this.setState(prevState => ({
+                formVisibleOnPage: !prevState.formVisibleOnPage,
+            }))
+        }
     }
 
     handleAddingNewKombuncha = (newKombuncha) => {
@@ -30,17 +39,25 @@ class KombunchaControl extends React.Component {
         })
     }
 
-
+    handleKombunchaDetails = (id) => {
+        const selectedKombuncha = this.state.masterKombunchaList.filter(kombuncha => kombuncha.id === id)[0];
+        this.setState({selectedKombuncha:selectedKombuncha})
+    }
 
     render() {
         let currentlyvisibleState = null;
         let buttonText = null;
 
-        if (this.state.formVisibleOnPage) {
+        if(this.state.selectedKombuncha !=null){
+            currentlyvisibleState = <KombunchaDetails kombuncha = {this.state.selectedKombuncha} />
+            buttonText = "Return to Kombuncha List"
+        }
+
+        else if (this.state.formVisibleOnPage) {
             currentlyvisibleState = <KombunchaForm onNewKombuncha = {this.handleAddingNewKombuncha} />
             buttonText = "Return to list"
         } else {
-            currentlyvisibleState = <KombunchaList kombunchaList={this.state.masterKombunchaList} />
+            currentlyvisibleState = <KombunchaList kombunchaList={this.state.masterKombunchaList}  onKombunchaSelection = {this.handleKombunchaDetails} />
             buttonText = "Add new Kombuncha"
 
         }
@@ -52,7 +69,6 @@ class KombunchaControl extends React.Component {
 
         ) 
             
-        
     }
     }
 export default KombunchaControl;
