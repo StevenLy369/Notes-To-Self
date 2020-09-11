@@ -1,6 +1,7 @@
 import React from 'react';
 import KombunchaList from './KombunchaList';
 import KombunchaForm from './KombunchaForm';
+import KombunchaDetails from './KombunchaDetails';
 
 
 
@@ -28,6 +29,8 @@ class KombunchaControl extends React.Component {
             formVisibleOnPage: false
         })
     }
+
+
 
     render() {
         let currentlyvisibleState = null;
