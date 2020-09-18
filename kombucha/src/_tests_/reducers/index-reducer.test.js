@@ -1,14 +1,15 @@
 import rootReducer from '../../components/reducers/index';
-import { createStore } from 'redux';
-import formVisibleReducer from '../../components/reducers/form-visible-reducer';
 
-let store = createStore(rootReducer)
+import formVisibleReducer from '../../components/reducers/form-visible-reducer';
+import kombunchaListReducer from '../../components/reducers/kombuncha-list-reducer';
+
+
 
 describe("rootReducer", () => {
     //Test one
 
     test('Should return default state if no action type is reconginzed', () => {
-        expect(rootReducer({} , {type:null})).toEqual({
+        expect(kombunchaListReducer({} , {type:null})).toEqual({
             formVisibleOnPage: false,
             masterKombunchaList:[],
             selectedKombuncha: null
