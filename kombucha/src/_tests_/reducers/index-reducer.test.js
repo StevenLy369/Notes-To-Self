@@ -9,11 +9,6 @@ describe("rootReducer", () => {
     //Test one
 
     test('Should return default state if no action type is reconginzed', () => {
-        expect(kombunchaListReducer({} , {type:null})).toEqual({
-            formVisibleOnPage: false,
-            masterKombunchaList:[],
-            selectedKombuncha: null
-
-        })
+        expect(kombunchaListReducer({} , {type:null})).toEqual({})
     })
 })
