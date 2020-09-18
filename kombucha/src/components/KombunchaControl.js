@@ -3,7 +3,7 @@ import KombunchaList from './KombunchaList';
 import KombunchaForm from './KombunchaForm';
 import KombunchaDetails from './KombunchaDetails';
 import PropTypes from 'prop-types';
-import {connect} from 'react-redux';
+import { connect } from 'react-redux'
 import * as a from './../components/actions/index';
 
 
