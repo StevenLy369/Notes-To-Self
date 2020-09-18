@@ -45,7 +45,7 @@ class KombunchaControl extends React.Component {
     }
 
     handleDeletingKombuncha = (id) => {
-        const newMasterKombunchaList = this.state.masterKombunchaList.filter(ticket => ticket.id !==id);
+        const newMasterKombunchaList = this.state.masterKombunchaList.filter(kombuncha => kombuncha.id !==id);
         this.setState({
             masterKombunchaList:newMasterKombunchaList,
             selectedKombuncha:null
@@ -53,12 +53,24 @@ class KombunchaControl extends React.Component {
 
     }
 
+    handleSellingKombuncha = (id) => {
+        const soldKombuncha = this.state.masterKombunchaList.filter(kombuncha => kombuncha.id ===id)[0];
+        if(soldKombuncha.stock > 0){
+            soldKombuncha.stock -=1;
+            const newMasterKombunchaList = this.state.masterKombunchaList.filter(kombuncha => kombuncha.id !== this.state.selectedKombuncha.id).concat(soldKombuncha);
+            this.setState({
+                masterKombunchaList:newMasterKombunchaList,
+
+            })
+        }
+    }
+
     render() {
         let currentlyvisibleState = null;
         let buttonText = null;
 
         if(this.state.selectedKombuncha !=null){
-            currentlyvisibleState = <KombunchaDetails kombuncha = {this.state.selectedKombuncha} onClickingDelete = {this.handleDeletingKombuncha} />
+            currentlyvisibleState = <KombunchaDetails kombuncha = {this.state.selectedKombuncha} onClickingDelete = {this.handleDeletingKombuncha} onSellingKombuncha = {this.handleSellingKombuncha} />
             buttonText = "Return to Kombuncha List"
         }
 

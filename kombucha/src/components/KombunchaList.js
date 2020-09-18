@@ -11,6 +11,7 @@ function KombunchaList(props) {
                 brand = {kombuncha.brand}
                 price = {kombuncha.price}
                 flavor = {kombuncha.flavor}
+                stock = {kombuncha.stock}
                 id = {kombuncha.id}
                 key ={kombuncha.id} />
                 
