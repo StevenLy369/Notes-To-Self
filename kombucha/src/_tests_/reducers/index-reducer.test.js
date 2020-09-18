@@ -12,7 +12,7 @@ describe("rootReducer", () => {
         expect(kombunchaListReducer({} , {type:null})).toEqual({})
     })
 
-  
+
 
     
 })
