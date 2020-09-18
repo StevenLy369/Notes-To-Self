@@ -12,6 +12,7 @@ function KombunchaForm(props){
             brand:event.target.brand.value,
             price:event.target.price.value,
             flavor:event.target.flavor.value,
+            
             id:v4()})
     }
 
@@ -34,6 +35,7 @@ function KombunchaForm(props){
                     name="price"
                     placeholder="price" />
                     <br/>
+                    
                     <button type="submit">Submit</button>
 
 

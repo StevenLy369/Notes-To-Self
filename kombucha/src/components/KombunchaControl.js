@@ -44,12 +44,21 @@ class KombunchaControl extends React.Component {
         this.setState({selectedKombuncha:selectedKombuncha})
     }
 
+    handleDeletingKombuncha = (id) => {
+        const newMasterKombunchaList = this.state.masterKombunchaList.filter(ticket => ticket.id !==id);
+        this.setState({
+            masterKombunchaList:newMasterKombunchaList,
+            selectedKombuncha:null
+        });
+
+    }
+
     render() {
         let currentlyvisibleState = null;
         let buttonText = null;
 
         if(this.state.selectedKombuncha !=null){
-            currentlyvisibleState = <KombunchaDetails kombuncha = {this.state.selectedKombuncha} />
+            currentlyvisibleState = <KombunchaDetails kombuncha = {this.state.selectedKombuncha} onClickingDelete = {this.handleDeletingKombuncha} />
             buttonText = "Return to Kombuncha List"
         }
 

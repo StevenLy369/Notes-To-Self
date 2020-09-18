@@ -9,6 +9,7 @@ function Kombuncha(props) {
             <h2>Kombuncha Brand:{props.brand}</h2>
             <h2>Kombuncha Flavor:{props.flavor}</h2>
             <h2>Kombuncha Price:{props.price}</h2>
+            
 
             </div>
            
