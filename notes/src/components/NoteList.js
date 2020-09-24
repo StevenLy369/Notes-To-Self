@@ -9,10 +9,12 @@ function NoteList(props) {
 
     return(
         <React.Fragment>
-            {props.noteList.map((note, index) => 
-                <Note note={note.note}
+            {props.noteList.map((note) => 
+                <Note 
+                      whenNoteClicked = {props.onclickingNote}
+                      note={note.note}
                       date={note.date}
-                      key={index} />
+                      key={note.id} />
 
 
             )}
@@ -25,7 +27,8 @@ function NoteList(props) {
 }
 
 NoteList.propTypes = {
-    noteList: PropTypes.array
+    noteList: PropTypes.array,
+    onNoteSelection: PropTypes.func,
 }
 
 export default NoteList

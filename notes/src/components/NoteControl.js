@@ -33,12 +33,14 @@ class NoteControl extends React.Component {
       handleChangingSelectedNote = (id) => {
         const selectedNote = this.state.masterNoteList.filter(note => note.id === id)[0];
         this.setState({selectedNote:selectedNote});
+        console.log("this is working");
       }
 
 
     render(){
         let currentlyVisibleState = null;
         let buttonText = null
+        
         if(this.state.selectedNote != null){
             currentlyVisibleState = <NoteDetail note = {this.state.selectedNote} />
             buttonText = "Return to Note List"

@@ -7,13 +7,18 @@ function Note(props) {
 
     return (
         <React.Fragment>
-            <div onClick = {HandleNoteDetails} >
+            
+            <div onClick = {() => props.whenNoteClicked(props.id)}>
             <h4>Task: {props.note}</h4>
             <h5>Date: {props.date}</h5>
 
 
 
             </div>
+           
+
+
+          
             
 
 
@@ -27,7 +32,8 @@ function Note(props) {
 Note.propTypes = {
     note: PropTypes.string,
     date: PropTypes.string,
-    handleOnClick: PropTypes.func
+    handleOnClick: PropTypes.func,
+    whenNoteClicked:PropTypes.func,
 }
 
 export default Note;
