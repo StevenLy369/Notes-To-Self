@@ -1,13 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { v4 } from 'uuid';
+import ReusableForm from "./ReusableForm";
 
 
 
 
 function NewTicketForm(props){
 
-    function handleNewTicketFormSubmission(event) {
+    function handleNewNoteFormSubmission(event) {
         event.preventDefault();
         props.onNewNoteCreation({
             note: event.target.note.value, 
@@ -24,22 +25,10 @@ function NewTicketForm(props){
 
     return (
         <React.Fragment>
-            <form onSubmit ={handleNewTicketFormSubmission}>
-                <label>Note:</label>
-                <input type = "text" name="note" />
-                <label>Date</label>
-                <input type = "text" name ="date" />
-                
-
-                <button type="submit">Submit</button>
-
-            </form>
-
-
-
-
-
-        </React.Fragment>
+        <ReusableForm 
+          formSubmissionHandler={handleNewNoteFormSubmission}
+          buttonText="Help!" />
+      </React.Fragment>
     )
 }
 

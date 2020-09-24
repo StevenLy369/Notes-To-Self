@@ -3,6 +3,7 @@ import NewNoteForm from './NewNoteForm'
 import NoteList from './NoteList';
 import Header from './Header';
 import NoteDetail from './NoteDetail';
+import EditNoteForm from './EditNoteForm';
 
 
 class NoteControl extends React.Component {
@@ -12,7 +13,8 @@ class NoteControl extends React.Component {
         this.state = {
             formVisibleOnPage: false,
             masterNoteList:[],
-            selectedNote:null
+            selectedNote:null,
+            editing:false
         }
 
     }
@@ -28,6 +30,11 @@ class NoteControl extends React.Component {
           formVisibleOnPage: !prevState.formVisibleOnPage,
         }));
       }
+    }
+
+    handleEditClick = () => {
+      this.setState({editing:true})
+      console.log("edit works")
     }
 
     
@@ -58,9 +65,13 @@ class NoteControl extends React.Component {
         let buttonText = null
 
 
+        if(this.state.editing){
+          currentlyVisibleState = <EditNoteForm ticket = {this.state.selectedTicket} />
+          buttonText = "Return to list"
+        }
 
-       if(this.state.selectedNote !=null){
-            currentlyVisibleState = <NoteDetail note ={this.state.selectedNote}  onNoteDelete = {this.handleDeletingNote}/>
+       else if(this.state.selectedNote !=null){
+            currentlyVisibleState = <NoteDetail note ={this.state.selectedNote}  onNoteDelete = {this.handleDeletingNote} onNoteEdit={this.handleEditClick}/>
             buttonText = "Return to Note List"
 
         }else if(this.state.formVisibleOnPage) {
