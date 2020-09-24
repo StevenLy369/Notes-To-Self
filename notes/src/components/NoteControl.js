@@ -1,8 +1,8 @@
 import React from 'react';
 import NewNoteForm from './NewNoteForm'
 import NoteList from './NoteList';
-import Header from './Header'
-import NoteDetail from './NoteDetails'
+import Header from './Header';
+import NoteDetail from './NoteDetail';
 
 
 class NoteControl extends React.Component {
@@ -18,10 +18,17 @@ class NoteControl extends React.Component {
     }
 
     handleClick = () => {
+      if (this.state.selectedNote != null) {
+        this.setState({
+          formVisibleOnPage: false,
+          selectedNote: null
+        });
+      } else {
         this.setState(prevState => ({
-          formVisibleOnPage: !prevState.formVisibleOnPage
+          formVisibleOnPage: !prevState.formVisibleOnPage,
         }));
       }
+    }
 
     
       handleAddingNewNoteToList = (newNote) => {
@@ -30,26 +37,37 @@ class NoteControl extends React.Component {
         formVisibleOnPage:false})
       }
 
-      handleChangingSelectedNote = (id) => {
+      handleChangingSelectedNote = (id) =>{
         const selectedNote = this.state.masterNoteList.filter(note => note.id === id)[0];
-        this.setState({selectedNote:selectedNote});
-        console.log("this is working");
-      }
+        this.setState({selectedNote: selectedNote});
+        console.log("method works")
+        
+    }
+
+    // handleDeletingNote = (id) => {
+    //   const newMasterNoteList = this.state.masterNoteList.filter(note => note.id !== id);
+    //   this.setState({
+    //     masterNoteList:newMasterNoteList,
+    //     selectedNote:null
+    //   })
+    // }
 
 
     render(){
         let currentlyVisibleState = null;
         let buttonText = null
-        
-        if(this.state.selectedNote != null){
-            currentlyVisibleState = <NoteDetail note = {this.state.selectedNote} />
+
+
+
+       if(this.state.selectedNote !=null){
+            currentlyVisibleState = <NoteDetail note ={this.state.selectedNote} />
             buttonText = "Return to Note List"
 
         }else if(this.state.formVisibleOnPage) {
             currentlyVisibleState = <NewNoteForm onNewNoteCreation = {this.handleAddingNewNoteToList} />
             buttonText = "Return to Note List"
         }else {
-          currentlyVisibleState = <NoteList noteList = {this.state.masterNoteList}  onclickingNote = {this.handleChangingSelectedNote}/>
+          currentlyVisibleState = <NoteList noteList = {this.state.masterNoteList}  onNoteSelection = {this.handleChangingSelectedNote} />
           buttonText = "Add New Note"
         }   
       return(

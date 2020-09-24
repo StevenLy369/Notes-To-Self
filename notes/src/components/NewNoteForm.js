@@ -9,7 +9,12 @@ function NewTicketForm(props){
 
     function handleNewTicketFormSubmission(event) {
         event.preventDefault();
-        props.onNewNoteCreation({note: event.target.note.value, date: event.target.date.value, id: v4()});
+        props.onNewNoteCreation({
+            note: event.target.note.value, 
+            date: event.target.date.value, 
+            id: v4()
+        });
+        
       }
     
 

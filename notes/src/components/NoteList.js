@@ -6,18 +6,21 @@ import PropTypes from 'prop-types';
 
 
 function NoteList(props) {
+  
 
     return(
         <React.Fragment>
             {props.noteList.map((note) => 
                 <Note 
-                      whenNoteClicked = {props.onclickingNote}
+                whenNoteClicked = {props.onNoteSelection}
                       note={note.note}
                       date={note.date}
+                      id={note.id}
                       key={note.id} />
 
 
             )}
+         
              
 
         </React.Fragment>
@@ -29,6 +32,7 @@ function NoteList(props) {
 NoteList.propTypes = {
     noteList: PropTypes.array,
     onNoteSelection: PropTypes.func,
+    
 }
 
 export default NoteList

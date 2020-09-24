@@ -1,26 +1,27 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-function NoteDetails(props){
+function NoteDetail(props){
     const {note} = props;
 
 
 
     return(
        <React.Fragment>
-           <h1>Note Details</h1>
+           <h1>Note Detail Page</h1>
            <h2>Notes: {note.note}</h2>
            <h4>Date:{note.date}</h4>
+           <h1>THIS WORKS</h1>
        </React.Fragment>
        
     )
 
 }
 
-NoteDetails.propTypes = {
-    note: PropTypes.object
+NoteDetail.propTypes = {
+    note: PropTypes.object,
 }
 
 
 
-export default NoteDetails;
+export default NoteDetail;
