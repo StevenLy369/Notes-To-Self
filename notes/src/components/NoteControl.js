@@ -44,13 +44,13 @@ class NoteControl extends React.Component {
         
     }
 
-    // handleDeletingNote = (id) => {
-    //   const newMasterNoteList = this.state.masterNoteList.filter(note => note.id !== id);
-    //   this.setState({
-    //     masterNoteList:newMasterNoteList,
-    //     selectedNote:null
-    //   })
-    // }
+    handleDeletingNote = (id) => {
+      const newMasterNoteList = this.state.masterNoteList.filter(note => note.id !== id);
+      this.setState({
+        masterNoteList:newMasterNoteList,
+        selectedNote:null
+      })
+    }
 
 
     render(){
@@ -60,7 +60,7 @@ class NoteControl extends React.Component {
 
 
        if(this.state.selectedNote !=null){
-            currentlyVisibleState = <NoteDetail note ={this.state.selectedNote} />
+            currentlyVisibleState = <NoteDetail note ={this.state.selectedNote}  onNoteDelete = {this.handleDeletingNote}/>
             buttonText = "Return to Note List"
 
         }else if(this.state.formVisibleOnPage) {

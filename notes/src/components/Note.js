@@ -9,7 +9,7 @@ function Note(props) {
             <h4>Task: {props.note}</h4>
             <h5>Date: {props.date}</h5>
             </div>
-           <button>HELLO</button>
+        
         </React.Fragment>
     )
 }
